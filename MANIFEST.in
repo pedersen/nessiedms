@@ -1,0 +1,4 @@
+recursive-include nessiewiki/public *
+include nessiewiki/public/favicon.ico
+recursive-include nessiewiki/i18n *
+recursive-include nessiewiki/templates *
