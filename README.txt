@@ -84,6 +84,19 @@ Automated Phrase Cross-Referencing
     Fallout wiki idea, the phrase "deadly creature" might link to the
     Deathclaw page.
 
+Per Page Plugins
+    This would allow for different page types to be created and
+    rendered, resulting in new uses. For instance, a ticket tracker
+    plugin could be made that would allow for tickets to be entered
+    and tracked, along with a custom display.
+
+Scheduled Jobs
+    A way to run background jobs on a scheduled basis. Volumes should
+    also be regularly exported to PDF and epub. Doing it on demand,
+    for any decently sized volume, will be impractical. A scheduled
+    job that runs, waits an hour, and checks to see if it needs to be
+    re-run, would be an ideal solution.
+
 How URLs Should Look
 ====================
 
@@ -97,3 +110,8 @@ Note that a default volume will need to be specified, and a default
 home page for that volume. That would mean that all the above URLs
 should point to the same location, assuming that volume1 is the
 default volume, and mainpage is the default page for that volume.
+
+Domains can direct to specific volumes, as well.
+
+http://volume1.example.com/ would point to volume1's default page.
+http://www.volume1.com/ would also point to volume1's default page.
