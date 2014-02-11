@@ -78,6 +78,12 @@ Customizable sub-volume names
     could use act, scene. This customization should be on a per-volume
     basis, and not be able to be overridden by sub-volumes.
 
+Automated Phrase Cross-Referencing
+    Some way of automatically linking phrases to useful pages. I think
+    that Lucene has some of this built in, but I don't know. Using the
+    Fallout wiki idea, the phrase "deadly creature" might link to the
+    Deathclaw page.
+
 How URLs Should Look
 ====================
 
