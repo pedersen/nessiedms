@@ -1,18 +1,22 @@
 # -*- coding: utf-8 -*-
 """Sample model module."""
 
-from ming import Field, schema
-from ming.declarative import Document
+from ming import schema
+from ming.orm import FieldProperty, ForeignIdProperty, RelationProperty
+from ming.orm import Mapper
+from ming.orm.declarative import MappedClass
 
 from nessiewiki.model import DBSession
 
 
-class SampleModel(Document):
+class SampleModel(MappedClass):
 
     class __mongometa__:
         session = DBSession
         name = 'sample_model'
     
     
-    _id = Field(schema.ObjectId)
-    data = Field(str)
+    _id = FieldProperty(schema.ObjectId)
+    data = FieldProperty(str)
+
+Mapper.compile_all()
