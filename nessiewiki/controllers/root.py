@@ -5,7 +5,6 @@ from tg import expose, flash, require, url, lurl, request, redirect, tmpl_contex
 from tg.i18n import ugettext as _, lazy_ugettext as l_
 from tg import predicates
 from nessiewiki import model
-from nessiewiki.controllers.secure import SecureController
 from tgext.admin.mongo import TGMongoAdminConfig
 from tgext.admin.controller import AdminController
 
@@ -29,7 +28,6 @@ class RootController(BaseController):
     must be wrapped around with :class:`tg.controllers.WSGIAppController`.
 
     """
-    secc = SecureController()
     admin = AdminController(model, None, config_type=TGMongoAdminConfig)
 
     error = ErrorController()
