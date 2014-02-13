@@ -34,40 +34,10 @@ class RootController(BaseController):
 
     error = ErrorController()
 
-    def _before(self, *args, **kw):
-        tmpl_context.project_name = "nessiewiki"
-
     @expose('nessiewiki.templates.index')
     def index(self):
         """Handle the front-page."""
         return dict(page='index')
-
-    @expose('nessiewiki.templates.about')
-    def about(self):
-        """Handle the 'about' page."""
-        return dict(page='about')
-
-    @expose('nessiewiki.templates.environ')
-    def environ(self):
-        """This method showcases TG's access to the wsgi environment."""
-        return dict(page='environ', environment=request.environ)
-
-    @expose('nessiewiki.templates.data')
-    @expose('json')
-    def data(self, **kw):
-        """This method showcases how you can use the same controller for a data page and a display page"""
-        return dict(page='data', params=kw)
-    @expose('nessiewiki.templates.index')
-    @require(predicates.has_permission('manage', msg=l_('Only for managers')))
-    def manage_permission_only(self, **kw):
-        """Illustrate how a page for managers only works."""
-        return dict(page='managers stuff')
-
-    @expose('nessiewiki.templates.index')
-    @require(predicates.is_user('editor', msg=l_('Only for the editor')))
-    def editor_user_only(self, **kw):
-        """Illustrate how a page exclusive for the editor works."""
-        return dict(page='editor stuff')
 
     @expose('nessiewiki.templates.login')
     def login(self, came_from=lurl('/')):

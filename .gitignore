@@ -1,2 +1,3 @@
 *.pyc
 nessiewiki.egg-info/*
+data/*
