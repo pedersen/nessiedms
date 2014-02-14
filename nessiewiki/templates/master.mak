@@ -39,7 +39,6 @@
 
 <%def name="footer()">
   <footer class="footer hidden-tablet hidden-phone">
-    <a class="pull-right" href="http://www.turbogears.org"><img style="vertical-align:middle;" src="${tg.url('/img/under_the_hood_blue.png')}" alt="TurboGears 2" /></a>
     <p>Copyright &copy; NessieWiki ${h.current_year()}</p>
   </footer>
 </%def>
@@ -48,7 +47,7 @@
   <div class="navbar">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href="#"><img src="${tg.url('/img/turbogears_logo.png')}" alt="TurboGears 2"/> NessieWiki</a>
+        <a class="brand" href="#"><img src="${tg.url('/img/turbogears_logo.png')}" alt="Nessie Wiki"/> NessieWiki</a>
         <ul class="nav nav-pills">
           <li class="${('', 'active')[page=='index']}"><a href="${tg.url('/')}">Welcome</a></li>
         </ul>

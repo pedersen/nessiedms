@@ -1,6 +1,9 @@
 <%inherit file="local:templates.master"/>
 
 <%def name="title()">
-  Welcome to Nessie Wiki!
+  ${page.title}
 </%def>
 
+<div>
+${page.text}
+</div>

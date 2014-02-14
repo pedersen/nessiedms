@@ -9,6 +9,7 @@ from tgext.admin.mongo import TGMongoAdminConfig
 from tgext.admin.controller import AdminController
 
 from nessiewiki.lib.base import BaseController
+from nessiewiki.lib.helpers import getlogger
 from nessiewiki.controllers.error import ErrorController
 
 __all__ = ['RootController']
@@ -32,6 +33,14 @@ class RootController(BaseController):
 
     error = ErrorController()
 
+    @expose('nessiewiki.templates.wiki.get_one')
+    def _default(self, *p, **kw):
+        log = getlogger(__name__, self.__class__.__name__, '_default')
+        title = '/'.join(p)
+        log.debug('title: %s' % (title))
+        wp = model.WikiPage.query.get(title=title)
+        return {'page': wp}
+    
     @expose('nessiewiki.templates.index')
     def index(self):
         """Handle the front-page."""

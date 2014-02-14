@@ -2,6 +2,8 @@
 
 """WebHelpers used in nessiewiki."""
 
+import logging
+
 #from webhelpers import date, feedgenerator, html, number, misc, text
 from markupsafe import Markup
 from datetime import datetime
@@ -15,3 +17,6 @@ def icon(icon_name, white=False):
         return Markup('<i class="icon-%s icon-white"></i>' % icon_name)
     else:
         return Markup('<i class="icon-%s"></i>' % icon_name)
+
+def getlogger(*p):
+  return logging.getLogger('.'.join(p))
