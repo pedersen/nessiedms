@@ -44,7 +44,10 @@ class RootController(BaseController):
         log = getlogger(__name__, self.__class__.__name__, '_default')
         title = '/'.join(p)
         log.debug('title: %s' % (title))
-        wp = model.WikiPage.query.get(title=title)
+        wp = model.WikiPage.query.find({'title':title}).first()
+        if wp is None:
+            redirect('/edit?_id=newpage&title=%s' % urllib.quote(title))
+            
         content = publish_parts(wp.text, writer_name="html")["html_body"]
         root = url('/')
         content = wikiwords.sub(r'<a href="%s\1">\1</a>' % root, content)
@@ -54,18 +57,29 @@ class RootController(BaseController):
     @expose('nessiewiki.templates.wiki.edit')
     def edit(self, _id, *p, **kw):
         log = getlogger(__name__, self.__class__.__name__, 'edit')
-        wp = model.WikiPage.query.get(_id=ObjectId(_id))
+        try:
+            wp = model.WikiPage.query.get(_id=ObjectId(_id))
+        except:
+            wp = None
+        if wp is None:
+            title = kw.get('title', 'New Page')
+            wp = model.WikiPage(title=title)
+            model.DBSession.flush()
         log.debug('title: %s' % (wp.title))
         return {'page': wp}
 
     @expose()
-    def save(self, pagetitle, text, _id):
+    def save(self, pagetitle, text, _id, *p, **kw):
         log = getlogger(__name__, self.__class__.__name__, 'save')
         wp = model.WikiPage.query.get(_id=ObjectId(_id))
         log.debug('title: %s' % (wp.title))
         wp.title = pagetitle
         wp.text = text
         redirect ('/%s' % urllib.quote(pagetitle))
+
+    @expose('nessiewiki.templates.wiki.pagelist')
+    def pagelist(self, *p, **kw):
+        return {'pages': model.WikiPage.query.find().sort('title', 1)}
     
     @expose('nessiewiki.templates.index')
     def index(self):
