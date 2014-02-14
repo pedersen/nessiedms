@@ -84,7 +84,7 @@ class RootController(BaseController):
     @expose('nessiewiki.templates.index')
     def index(self):
         """Handle the front-page."""
-        return dict(page='index')
+        redirect('/pagelist')
 
     @expose('nessiewiki.templates.login')
     def login(self, came_from=lurl('/')):
