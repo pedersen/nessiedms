@@ -55,7 +55,7 @@ class RootController(BaseController):
         return {'pagetitle': wp.title, 'content': content, '_id': wp._id}
 
     @expose('nessiewiki.templates.wiki.edit')
-    def edit(self, _id, *p, **kw):
+    def edit(self, _id=None, *p, **kw):
         log = getlogger(__name__, self.__class__.__name__, 'edit')
         try:
             wp = model.WikiPage.query.get(_id=ObjectId(_id))
