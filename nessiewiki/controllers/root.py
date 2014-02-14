@@ -1,19 +1,25 @@
 # -*- coding: utf-8 -*-
 """Main Controller"""
 
+import re
+import urllib
+
+from bson.objectid import ObjectId
+from docutils.core import publish_parts
 from tg import expose, flash, require, url, lurl, request, redirect, tmpl_context
 from tg.i18n import ugettext as _, lazy_ugettext as l_
 from tg import predicates
-from nessiewiki import model
 from tgext.admin.mongo import TGMongoAdminConfig
 from tgext.admin.controller import AdminController
 
 from nessiewiki.lib.base import BaseController
 from nessiewiki.lib.helpers import getlogger
+from nessiewiki import model
 from nessiewiki.controllers.error import ErrorController
 
 __all__ = ['RootController']
 
+wikiwords = re.compile(r"\b([A-Z]\w+[A-Z]+\w+)")
 
 class RootController(BaseController):
     """
@@ -39,7 +45,27 @@ class RootController(BaseController):
         title = '/'.join(p)
         log.debug('title: %s' % (title))
         wp = model.WikiPage.query.get(title=title)
+        content = publish_parts(wp.text, writer_name="html")["html_body"]
+        root = url('/')
+        content = wikiwords.sub(r'<a href="%s\1">\1</a>' % root, content)
+
+        return {'pagetitle': wp.title, 'content': content, '_id': wp._id}
+
+    @expose('nessiewiki.templates.wiki.edit')
+    def edit(self, _id, *p, **kw):
+        log = getlogger(__name__, self.__class__.__name__, 'edit')
+        wp = model.WikiPage.query.get(_id=ObjectId(_id))
+        log.debug('title: %s' % (wp.title))
         return {'page': wp}
+
+    @expose()
+    def save(self, pagetitle, text, _id):
+        log = getlogger(__name__, self.__class__.__name__, 'save')
+        wp = model.WikiPage.query.get(_id=ObjectId(_id))
+        log.debug('title: %s' % (wp.title))
+        wp.title = pagetitle
+        wp.text = text
+        redirect ('/%s' % urllib.quote(pagetitle))
     
     @expose('nessiewiki.templates.index')
     def index(self):

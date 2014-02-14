@@ -1,9 +1,14 @@
 <%inherit file="local:templates.master"/>
 
 <%def name="title()">
-  ${page.title}
+  ${pagetitle}
 </%def>
 
-<div>
-${page.text}
-</div>
+  <div>
+    <h1>Viewing <em>${pagetitle}</em></h1>
+  </div>
+  <div>
+    ${content | n}
+    <a href="/edit?_id=${_id}">Edit This Page</a>
+  </div>
+  
