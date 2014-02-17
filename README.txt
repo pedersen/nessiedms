@@ -26,6 +26,16 @@ Then you are ready to go.
 What Does This Do?
 ==================
 
+Versioned History
+    The system needs to keep track of previous versions. It also needs
+    to let an admin delete versions from history entirely. Should it
+    use git/mercurial? Or just store whole versions of documents?
+
+Page Commenting
+    The ability for visitors to comment on pages needs to be there. An
+    easy way for them to make comments without having to edit the
+    page.
+
 Multiple Volumes
     A volume is top level item, and would normally be a wiki unto
     itself. Sometimes, some wikis will serve up sub-wikis. For
@@ -56,45 +66,22 @@ Non-Orphanable Pages
     volume has a front page that acts as the ultimate parent page of
     that volume.
 
-Security
-    Each volume supports its own permissions. A person may be an admin
-    in one volume, and a reader in another. The entire installation
-    will also support the idea of a super admin, somebody who has the
-    permission to do anything in the installation
+Better Searching
+    Lucene provides tools to help with making full text searching much
+    more useful. It will be integrated in to help users have better
+    search results.
 
-Domain Volumes
-    A given domain can also serve as a pointer for a volume in the
-    installation. Furthermore, that volume can be hidden if it is not
-    accessed via that domain name. Note that domain, in this case,
-    refers to a DNS domain or subdomain.
 
 Theme-ability
     Nessie Wiki supports using custom themes on a per volume basis. An
     option needs to exist to allow sub-volumes to override the parent
     volume's theme.
 
-Customizable sub-volume names
-    The default will be volume, part, chapter. However, a playwright
-    could use act, scene. This customization should be on a per-volume
-    basis, and not be able to be overridden by sub-volumes.
-
-Automated Phrase Cross-Referencing
-    Some way of automatically linking phrases to useful pages. I think
-    that Lucene has some of this built in, but I don't know. Using the
-    Fallout wiki idea, the phrase "deadly creature" might link to the
-    Deathclaw page.
-
-Per Page Plugins
-    This would allow for different page types to be created and
-    rendered, resulting in new uses. For instance, a ticket tracker
-    plugin could be made that would allow for tickets to be entered
-    and tracked, along with a custom display.
-
-Templates
-    Templates for a given page should be able to be defined by the
-    site, by the volume, and by any associated plugins. This would
-    allow for easy, consistent formatting for games, or for pictures,
-    etc.
+Security
+    Each volume supports its own permissions. A person may be an admin
+    in one volume, and a reader in another. The entire installation
+    will also support the idea of a super admin, somebody who has the
+    permission to do anything in the installation.
 
 Scheduled Jobs
     A way to run background jobs on a scheduled basis. Volumes should
@@ -103,10 +90,34 @@ Scheduled Jobs
     job that runs, waits an hour, and checks to see if it needs to be
     re-run, would be an ideal solution.
 
-Versioned History
-    The system needs to keep track of previous versions. It also needs
-    to let an admin delete versions from history entirely. Should it
-    use git/mercurial? Or just store whole versions of documents?
+Domain Volumes
+    A given domain can also serve as a pointer for a volume in the
+    installation. Furthermore, that volume can be hidden if it is not
+    accessed via that domain name. Note that domain, in this case,
+    refers to a DNS domain or subdomain.
+
+Customizable sub-volume names
+    The default will be volume, part, chapter. However, a playwright
+    could use act, scene. This customization should be on a per-volume
+    basis, and not be able to be overridden by sub-volumes.
+
+Templates
+    Templates for a given page should be able to be defined by the
+    site, by the volume, and by any associated plugins. This would
+    allow for easy, consistent formatting for games, or for pictures,
+    etc.
+
+Per Page Plugins
+    This would allow for different page types to be created and
+    rendered, resulting in new uses. For instance, a ticket tracker
+    plugin could be made that would allow for tickets to be entered
+    and tracked, along with a custom display.
+
+Automated Phrase Cross-Referencing
+    Some way of automatically linking phrases to useful pages. I think
+    that Lucene has some of this built in, but I don't know. Using the
+    Fallout wiki idea, the phrase "deadly creature" might link to the
+    Deathclaw page.
 
 How URLs Should Look
 ====================
@@ -137,3 +148,9 @@ How to disambiguate when a volume is being explicitly named in a URL,
 versus a page that happens to have the same name as a volume? The @
 character is the answer. When a URL component has an @character at the
 front of it, it always points to a volume by name.
+
+TODO / To Investigate
+=====================
+
+http://www.getbootstrap.com/ manages to spruce up pages very nicely.
+
