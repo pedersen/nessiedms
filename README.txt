@@ -119,6 +119,13 @@ Automated Phrase Cross-Referencing
     Fallout wiki idea, the phrase "deadly creature" might link to the
     Deathclaw page.
 
+Anti-Spam Measures
+    While I'm not sure what these should actually be, or how to
+    enforce them, they definitely need to be in here. Having the
+    ability to delete pages, page versions, and comments will help,
+    but that's all reactive. The system needs to have some proactive
+    options in it too.
+
 How URLs Should Look
 ====================
 
@@ -148,6 +155,35 @@ How to disambiguate when a volume is being explicitly named in a URL,
 versus a page that happens to have the same name as a volume? The @
 character is the answer. When a URL component has an @character at the
 front of it, it always points to a volume by name.
+
+While working on the code, the need to have a page controller was
+finally identified. Along with that came comments and history. Working
+on the URLS finally resulted in the following schemes being devised,
+which also constitutes the entirety of the page API. Where [pagetitle]
+is listed in them, it means to substitute the entire page title. The
+[] are not part of the URL, and indicate only a placeholder.
+
+/@volume/
+/@volume/edit
+/@volume/save
+/@volume/delete
+/@volume/pagelist
+/@volume/[pagetitle]/edit
+/@volume/[pagetitle]/save
+/@volume/[pagetitle]/new
+/@volume/[pagetitle]/get_one
+/@volume/[pagetitle]/delete
+/@volume/[pagetitle]/comments/get_all
+/@volume/[pagetitle]/comments/get_one
+/@volume/[pagetitle]/comments/new
+/@volume/[pagetitle]/comments/save
+/@volume/[pagetitle]/comments/edit
+/@volume/[pagetitle]/comments/delete
+/@volume/[pagetitle]/history/get_all
+/@volume/[pagetitle]/history/get_one
+/@volume/[pagetitle]/history/delete
+/@volume/[pagetitle]/history/revert
+/@volume/[pagetitle]/history/compare
 
 TODO / To Investigate
 =====================
