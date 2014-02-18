@@ -73,6 +73,10 @@ class RootController(BaseController):
         log = getlogger(__name__, self.__class__.__name__, 'save')
         wp = model.WikiPage.query.get(_id=ObjectId(_id))
         log.debug('title: %s' % (wp.title))
+        history = model.WikiPageHistory()
+        history.page_id = wp._id
+        history.title = wp.title
+        history.text = wp.text
         wp.title = pagetitle
         wp.text = text
         redirect ('/%s' % urllib.quote(pagetitle))
