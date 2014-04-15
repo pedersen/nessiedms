@@ -41,6 +41,7 @@ install_requires=[
     "tw2.forms",
     "tgext.admin >= 0.5.1",
     "docutils",
+    "python-memcached",
     ]
 
 setup(

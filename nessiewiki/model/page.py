@@ -23,6 +23,7 @@ class WikiPage(MappedClass):
 
     history = RelationProperty('WikiPageHistory')
     comments = RelationProperty('WikiPageComment')
+    volumes = RelationProperty('Volume')
 
 class WikiPageHistory(MappedClass):
     class __mongometa__:

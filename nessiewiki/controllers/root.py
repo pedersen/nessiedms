@@ -39,6 +39,12 @@ class RootController(BaseController):
 
     error = ErrorController()
 
+    @expose()
+    def _lookup(self, *p, **kw):
+        print str(p)
+        print str(kw)
+        return self, p
+    
     @expose('nessiewiki.templates.wiki.get_one')
     def _default(self, *p, **kw):
         log = getlogger(__name__, self.__class__.__name__, '_default')

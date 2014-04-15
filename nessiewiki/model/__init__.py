@@ -14,4 +14,5 @@ def init_model(engine):
 
 # Import your model modules here.
 from nessiewiki.model.auth import User, Group, Permission
+from nessiewiki.model.volume import Volume
 from nessiewiki.model.page import WikiPage, WikiPageComment, WikiPageHistory
