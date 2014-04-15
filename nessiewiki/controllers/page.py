@@ -47,14 +47,12 @@ class PageController(object):
         return {'page': self.wp}
 
     @expose()
-    def save(self, title, text, *p, **kw):
+    def save(self, text, *p, **kw):
         log = getlogger(__name__, self.__class__.__name__, 'save')
         history = model.WikiPageHistory()
         history.page_id = self.wp._id
-        history.title = self.wp.title
         history.text = self.wp.text
         self.wp.text = text
-        self.wp.title = title
         redirect (url('./'))
 
     @expose()
@@ -63,6 +61,10 @@ class PageController(object):
 
     @expose()
     def delete(self):
+        for h in self.wp.history:
+            h.delete()
+        for c in self.wp.comments:
+            c.delete()
         self.wp.delete()
         redirect(url('../'))
     
