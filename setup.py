@@ -39,6 +39,7 @@ install_requires=[
     "tgming",
     "repoze.who",
     "tw2.forms",
+    "tw2.jquery",
     "tgext.admin >= 0.5.1",
     "docutils",
     "python-memcached",
