@@ -1,0 +1,266 @@
+## The Problem
+
+For my entire life, I've dealt with a specific problem in varying
+ways. None of them truly solved the problem, though. Instead, they
+brought with them their own tools, with their own overhead, and their
+own demands as I moved forward.
+
+That problem is information overload. Specifically, the duplication of
+information that should always be the same. This is not a small
+problem to solve.
+
+## The Explanation
+
+We have a problem in our information age: We have too much of it,
+duplicated across too many formats. We don’t know who needs it, or how
+to share it with them. We have means and methods, but technology gets
+in our way more than it makes it easy.
+
+Consider your contact information. You probably have multiple email
+addresses, multiple phone numbers, participate in multiple social
+networks, and there’s your street address too (for some people, even
+this can be multiple, with work, home, and “summer home”). There are
+formats meant to allow easy exchange of that data, but even then you
+have to exchange data to exchange that data. How then do you exchange
+it? Do you use NFC? EMail? VCF files? Pieces of paper? Some sort of
+wireless information exchange like [Bump][BUMP] used to provide, or
+even PalmOS with the IR port?
+
+We have so many ways to exchange information that we first have to
+establish what we’re sharing (phone number? email?), and then how
+we’re going to exchange it, before we can actually get at what we care
+about: That piece of data that lets us connect, and stay connected.
+
+Then comes the life changes: we move, we change jobs, we change phone
+numbers, etc. How do we update everybody we ever gave that information
+to? How do we ensure that, if we’ve changed who we want to see that
+information, those people we no longer wish to see it don’t get it?
+
+This problem extends far beyond contact information.
+
+It includes procedures at work (have you ever followed the wrong
+procedure because nobody updated the manual to show the correct
+procedure?). It includes what we create (have you ever created a
+document, shared it with people, and then updated it, having others be
+out of sync with current?). It includes information we control, and
+information we have that is controlled by others.
+
+It also is reflected in the way we find the data we care about.
+
+For work procedures, there should be a single authoritative place to
+go to get them. They should always be current and correct. There
+should be a history showing how they’ve changed. You should be able to
+download a complete copy, and have everything in order, so that you
+can always ensure you’re doing what you need to be doing.
+
+All of these are just some of the data that can be gathered up by
+people over time. Writers can save single sentences that inspire
+them. People could save photos, or the text of web pages, or mp3
+files, or videos. All of these provide data that a person cares
+about. All of this data needs to be understood in such a way as to
+help the people using that data answer one simple question: What
+information do I have that helps me to deal with the problems I have
+right now?
+
+This need comes about at both an individual and a group level. When
+dealing with the group level, this is, effectively, the “hive mind” at
+work. Having all of this knowledge in one place allows entire groups
+of people to use the information for the betterment of their lives.
+
+## Ways I've Tried To Solve It
+
+We have a number of systems in place that provide some aspect of this,
+though none of them fit the entire bill. And I’m not convinced that
+any of them address the worst of the problem.
+
+### Wikis
+
+Wikis allow the group to record the data. Where they fail, though, is
+quite notable.
+
+#### Organization
+
+I have yet to see a wiki really handle this well. A straight up
+hierarchy doesn't work. Too often, a given document belongs in two
+places (or more). Anything that enforces a hierarchy must require a
+choice of where to place something. On the flip side, when discussing
+a wiki, very few of them impose any sort of hierarchy. In fact, some
+of them don't even have a hierarchy at all, placing every item in the
+same "folder". This makes for a mess when it comes time to search for
+something. Tags can help in this regard, but they're still far from
+ideal. How do we make sure that a given article is sufficiently
+tagged? How do we make sure that the searcher knows which tag will
+provide the desired results?
+
+#### Authoritativeness
+
+Sometimes, you need documentation that you know the source. You need
+to know it came from the right person or team. Documentation that is
+crowd-sourced simply doesn't always cut it. On the other hand,
+sometimes you need to have areas where the crowd can update
+things. Sometimes, the very information that needs to be crowd sourced
+is the same information that needs to be authoritative. This is a
+balancing act that is very difficult to get right, and I'm not
+convinced that the open model of the wiki is the right
+solution. Simply locking a contentious page doesn't actually solve the
+problem of determining accuracy, and the lack of accuracy in those
+cases undermines authoritativeness.
+
+#### Access Control
+
+When dealing with something open to the public, you're going to get
+spammers and defacers who don't care about what you have to
+offer. They're just going to come in and update every page they can
+with their garbage, and you have to clean up the mess. Some wiki
+systems simply go with "allow the user to revert to a previous version
+of the page", which is a time consuming act that, ideally, should be
+prevented as opposed to responded to.
+
+#### Cross-Referencing
+
+This seems like I'm talking about the primary strength of wiki: It
+cross-references so easily it's amazing. I can reference something
+anywhere (within the wiki, outside the wiki) without much effort at
+all. And yet, it's still a major weakness. Cross-references are
+entirely manual across all of these systems. If I'm reading a wiki,
+and decide to make a new page for a given phrase, I can find myself
+surprised that the page already exists. I have no way of knowing it in
+advance unless someone else does the work of making the link.
+
+#### Supported Formats
+
+They support one specific type of media: Specialized markup text using
+the markup style of their choice. Why can I not upload a PDF, or DOC,
+or ODT, orany other format. And I don't mean as an attachment: I mean
+as a first class piece of data to be reviewed, searched, and edited.
+
+### Content Management Systems
+
+Another entry in this field is the idea of a Content Management
+System. This manages to address most of the wiki issues, but still
+leaves some major holes untouched. In particular, organization,
+cross-referencing, and supported formats are all weaknesses of the
+typical CMS.
+
+Now, a CMS can have the advantage in the presentation (another failing
+point of wikis, since they are limited to one output format only
+normally), but this is not common either. Quite frequently, the
+typical CMS will only output HTML. Getting any other format relies on
+using print drivers, or using copy/paste and manual cleanup.
+
+### Search Systems
+
+Search systems excel at helping us find information. All of the ones
+below do an amazingly difficult job, and do it in a way that just
+astounds. Where all of them fail, though, is in helping us find
+answers to questions we don't know we have.
+
+We all have questions like that. One of the skills we learn is how to
+use search engines to help us find answers to our questions. Along
+with that skill is learning to understand our questions enough to be
+able to ask them in a way that the search engine can answer them.
+
+For example, for me, a major question right now is "How do I get
+started in the field of Artificial Intelligence"? I simply have no
+answer. And my first answers from Google look mildly useful. Despite
+that, it is where I have to start, since I have no other starting
+point. And, with everything online, there's not even an easy way for
+me to browse to find my starting point.
+
+Before telling me I just don't know how to search, consider some
+alternate examples, like these:
+
+* I'm in the market for a new vehicle. What should I be looking for?
+  What should I be watching out for?
+  
+* I'm in the market for a new computer. I want to assemble my
+  own. What do I need to know to be successful at this?
+
+* I'm in the market for a new TV and sound system. What are the
+  current standards? What will I need to get to be able to
+  successfully play my existing media? What will I need to get to be
+  future proofed for a good five years or so?
+
+None of these are easy questions to answer. Go to 5 different market
+places, and you will get at least 5 different answers. Ask Google, or
+Bing, or Siri, and you're going to get thousands of possible
+answers. How do you evaluate the worth of any of those answers? How do
+you manage to browse through these possible answers to find the answer
+that is right *for you*?
+
+#### Bing
+
+#### Google DeepMind
+
+[Google DeepMind][DEEPMIND]
+
+#### Google Knowledge Graph
+
+[Google’s Knowledge Graph][KNOWLEDGEGRAPH] is amazing, since it works
+on the accuracy problem in ways that nothing else comes close
+to. However, Google does not have access to internal data without the
+[Google Search Appliance][SEARCHAPPLIANCE]. With that in place,
+though, it might be a suitable use in a company.
+
+#### Google Knowledge Vault
+
+[Google Knowledge Vault][KNOWLEDGEVAULT]
+
+#### Siri
+
+### Document Repository Systems
+
+#### DocuShare by Xerox
+
+[DocuShare][DOCUSHARE]
+
+#### SharePoint
+
+### Operating Systems
+
+Some people might claim that an Operating System, with its files and
+folders, meets these needs. My counter example for this is my own
+resume. When I began my most recent job search, I found several
+different versions of my resume, and each of them were slightly
+different. I needed to take the time to learn new tools, and prepare
+new versions, to ensure that my resume always gave the same message to
+prospective employers. If that document, with all of its importance to
+my life, can so easily become out of sync, how much other data do I
+have that is in major disagreement with itself?
+
+### WinFS
+
+[WinFS][WINFS]
+
+## The Solution?
+
+I used to think that all I needed to do was provide a superb document
+management system. At this point in time (Dec 2015), there are more
+systems of this type than can even be easily evaluated. CMSes of all
+shapes and sizes, wikis that contain gigabytes of data, and then
+actual document management and sharing systems on top of those.
+
+We have more ways to manage to manage the information than any of us
+can manage. What we don't have is ways to actually verify that
+information. We don't have ways to let our computers do the work for
+us of tracking the information we care about, and seeing when it gets
+updated in an external source.
+
+It might be time for the Data Management System. The idea behind this
+is that we have a tool that has some form of “understanding” of the
+information it contains. It actively looks for conflicts amongst that
+information, and then presents it to the people that can do something
+to resolve those conflicts. It records history of those resolutions,
+so that it also tracks the evolution of the knowledge it
+contains. Finally, it also has an additional component (or set of
+components) designed to look outside of itself for updates, conflicts,
+and additional knowledge. This could include seeking information on
+the local network, or going out to the internet for updates, or both.
+
+[BUMP]: http://en.wikipedia.org/wiki/Bump_%28application%29
+[DEEPMIND]: http://deepmind.com/
+[DOCUSHARE]: http://docushare.xerox.com/
+[KNOWLEDGEGRAPH]: http://en.m.wikipedia.org/wiki/Knowledge_Graph
+[KNOWLEDGEVAULT]: http://en.m.wikipedia.org/wiki/Knowledge_Vault
+[SEARCHAPPLIANCE]: https://www.google.com/work/search/products/gsa.html
+[WINFS]: http://en.wikipedia.org/wiki/WinFS
