@@ -12,6 +12,7 @@ from tg import expose, url
 from tg import redirect, validate, flash
 #from tg.i18n import ugettext as _
 #from tg import predicates
+from webob.exc import HTTPNotFound
 
 # project specific imports
 from nessiewiki import model
@@ -21,16 +22,50 @@ from nessiewiki.model import DBSession
 
 wikiwords = re.compile(r"\b([A-Z]\w+[A-Z]+\w+)")
 
-class PageController(object):
+class PageHistoryController(BaseController):
+    """
+    TODO: delete specific page revision
+    TODO: compare two revisions
+    TODO: revert to specific revision
+    TODO: display specific revision
+    """
+    pass
+
+class PageCommentsContgroller(BaseController):
+    """
+    TODO: add comment
+    TODO: delete comment
+    TODO: edit comment
+    TODO: view comments
+    """
+    pass
+
+class PageController(BaseController):
 
     def __init__(self, title, *p, **kw):
+        super(PageController, self).__init__()
         log = getlogger(__name__, self.__class__.__name__, '__init__')
         log.debug('title: %s' % (title))
         self.title = title
         self.wp = model.WikiPage.query.find({'title':title}).first()
-        
+
+    @expose()
+    def _lookup(self, *p, **kw):
+        log = getlogger(__name__, self.__class__.__name__, '_lookup')
+        urlmap = {
+            'history': None,
+            'comments': None
+            }
+        if p:
+            p=list(p)
+            url = p.pop(0)
+            klass = urlmap.get(url, None)
+            if klass:
+                return klass(self.wp), p
+        raise HTTPNotFound
+    
     @expose('nessiewiki.templates.wiki.get_one')
-    def _default(self, *p, **kw):
+    def index(self, *p, **kw):
         if self.wp is None:
             redirect(url('./%s/edit' % self.title))
         content = publish_parts(self.wp.text, writer_name="html")["html_body"]
@@ -56,10 +91,6 @@ class PageController(object):
         redirect (url('./'))
 
     @expose()
-    def rename(self, title):
-        pass
-
-    @expose()
     def delete(self):
         for h in self.wp.history:
             h.delete()
@@ -68,4 +99,6 @@ class PageController(object):
         self.wp.delete()
         redirect(url('../'))
     
-        
+    @expose()
+    def rename(self, title):
+        pass
