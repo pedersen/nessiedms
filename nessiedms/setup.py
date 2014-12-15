@@ -40,7 +40,13 @@ install_requires=[
     "repoze.who",
     "tw2.forms",
     "tgext.admin >= 0.6.1",
+    "psycopg2"
     ]
+if py_version == (3, 2):
+    #jinja2 2.7 is incompatible with Python 3.2
+    install_requires.append('jinja2 < 2.7')
+else:
+    install_requires.append('jinja2')
 
 setup(
     name='nessiedms',

@@ -33,11 +33,9 @@ base_config.renderers.append('json')
 base_config.renderers.append('genshi')
 
 #Set the default renderer
-base_config.default_renderer = 'genshi'
-# if you want raw speed and have installed chameleon.genshi
-# you should try to use this renderer instead.
-# warning: for the moment chameleon does not handle i18n translations
-#base_config.renderers.append('chameleon_genshi')
+base_config.default_renderer = 'jinja'
+base_config.renderers.append('jinja')
+base_config.jinja_extensions = ['jinja2.ext.with_']
 #Configure the base SQLALchemy Setup
 base_config.use_sqlalchemy = True
 base_config.model = nessiedms.model
@@ -45,7 +43,7 @@ base_config.DBSession = nessiedms.model.DBSession
 # Configure the authentication backend
 
 # YOU MUST CHANGE THIS VALUE IN PRODUCTION TO SECURE YOUR APP 
-base_config.sa_auth.cookie_secret = "8b798110-a913-4827-9850-a7e15313e4b1"
+base_config.sa_auth.cookie_secret = "4537aa7b-261a-4671-a6a3-bff2424463b0"
 
 base_config.auth_backend = 'sqlalchemy'
 

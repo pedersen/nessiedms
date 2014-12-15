@@ -1,19 +1,15 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:py="http://genshi.edgewall.org/"
-    xmlns:xi="http://www.w3.org/2001/XInclude">
+{% extends "master.jinja" %}
 
-<xi:include href="master.html" />
+{% block master_title %}
+Login Form
+{% endblock %}
 
-<head>
-  <title>Login Form</title>
-</head>
-
-<body>
+{% block contents %}
   <h1>Login</h1>
 
   <div class="row">
     <div class="col-md-8 col-md-offset-1">
-      <form action="${tg.url('/login_handler', params=dict(came_from=came_from, __logins=login_counter))}"
+      <form action="{{tg.url('/login_handler', params=dict(came_from=came_from, __logins=login_counter))}}"
             method="post" accept-charset="UTF-8" class="form-horizontal">
         <div class="form-group">
           <label class="col-sm-2 control-label">Username:</label>
@@ -44,5 +40,4 @@
       </form>
     </div>
   </div>
-</body>
-</html>
+{% endblock %}

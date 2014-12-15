@@ -1,14 +1,10 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:py="http://genshi.edgewall.org/"
-      xmlns:xi="http://www.w3.org/2001/XInclude">
+{% extends "master.jinja" %}
 
-  <xi:include href="master.html" />
+{% block master_title %}
+Learning TurboGears 2.3: Quick guide to the Quickstart pages.
+{% endblock %}
 
-  <head>
-    <title>Learning TurboGears 2.3: Quick guide to the Quickstart pages.</title>
-  </head>
-
-  <body>
+{% block contents %}
     <div class="row">
       <div class="col-md-12">
         <div class="page-header">
@@ -27,8 +23,10 @@
             <li><a href="#data-model">Data Model</a></li>
             <li><a href="#url-structure">URL Structure</a></li>
             <li><a href="#template-reuse">Templates</a></li>
-            <li py:if="tg.auth_stack_enabled" class="nav-header">Authentication</li>
-            <li py:if="tg.auth_stack_enabled"><a href="#authentication">Authorization and Authentication</a></li>
+            {% if tg.auth_stack_enabled %}
+                <li class="nav-header">Authentication</li>
+                <li><a href="#authentication">Authorization and Authentication</a></li>
+            {% endif %}
           </ul>
         </div>
 
@@ -49,7 +47,7 @@
 
           <p>The "<code>root.py</code>" file under the <code>/controllers</code> folder has
           your URLs. When you called this url (<code><a href=
-          "${tg.url('/about')}">about</a></code>), the command went through the
+          "{{tg.url('/about')}}">about</a></code>), the command went through the
           RootController class to the <code>about()</code> method.</p>
 
           <p>Those Python methods are responsible to create the dictionary of variables
@@ -95,7 +93,8 @@
       </div>
     </div>
 
-    <div class="row" py:if="tg.auth_stack_enabled">
+  {% if tg.auth_stack_enabled %}
+    <div class="row">
       <div class="col-md-12" id="authentication" >
         <h3>Authentication &amp; Authorization in a TG2 site.</h3>
 
@@ -117,7 +116,7 @@
         the <code>websetup.py</code> file.</p>
 
         <p>Now try to visiting the <a href=
-        "${tg.url('/manage_permission_only')}">manage_permission_only</a> URL. You will
+        "{{tg.url('/manage_permission_only')}}">manage_permission_only</a> URL. You will
         be challenged with a login/password form.</p>
 
         <p>Only managers are authorized to visit this method. You will need to log-in
@@ -126,18 +125,18 @@
 password: managepass</pre>
 
         <p>Another protected resource is <a href=
-        "${tg.url('/editor_user_only')}">editor_user_only</a>. This one is protected by
+        "{{tg.url('/editor_user_only')}}">editor_user_only</a>. This one is protected by
         a different set of permissions. You will need to be <code>editor</code> with a
         password of <code>editpass</code> to be able to access it.</p>
 
         <p>The last kind of protected resource in this quickstarted app is a full so
-        called <a href="${tg.url('/secc')}">secure controller</a>. This controller is
+        called <a href="{{tg.url('/secc')}}">secure controller</a>. This controller is
         protected globally. Instead of having a @require decorator on each method, we
         have set an allow_only attribute at the class level. All the methods in this
         controller will require the same level of access. You need to be manager to
-        access <a href="${tg.url('/secc')}">secc</a> or <a href=
-        "${tg.url('/secc/some_where')}">secc/some_where</a>.</p>
+        access <a href="{{tg.url('/secc')}}">secc</a> or <a href=
+        "{{tg.url('/secc/some_where')}}">secc/some_where</a>.</p>
       </div>
     </div>
-  </body>
-</html>
+  {%  endif %}
+{% endblock %}

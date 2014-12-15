@@ -1,20 +1,19 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:py="http://genshi.edgewall.org/"
-      xmlns:xi="http://www.w3.org/2001/XInclude">
+{% extends "master.jinja" %}
 
-  <xi:include href="master.html" />
+{% block master_title %}
+Learning TurboGears 2.3: Information about TG and WSGI
+{% endblock %}
 
-<head>
-  <title>Learning TurboGears 2.3: Information about TG and WSGI</title>
-  <style>
-    .table {
-      word-wrap: break-word;
-      table-layout: fixed;
-    }
-  </style>
-</head>
+{% block master_head %}
+<style>
+.table {
+  word-wrap: break-word;
+  table-layout: fixed;
+}
+</style>
+{% endblock %}
 
-<body>
+{% block contents %}
   <div class="row">
     <div class="col-xs-12">
       <h2>The WSGI nature of the framework</h2>
@@ -27,13 +26,14 @@
 
       <div class="table-responsive">
         <table class="table table-hover">
-            <tr py:for="key in sorted(environment)">
-                <td>${key}</td>
-                <td><div>${str(environment[key])}</div></td>
+            {% for key in environment.keys()|sort %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ environment[key]|string }}</td>
             </tr>
+            {% endfor %}
         </table>
       </div>
     </div>
   </div>
-</body>
-</html>
+{% endblock %}
