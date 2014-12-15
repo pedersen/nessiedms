@@ -190,9 +190,26 @@ that is right *for you*?
 
 #### Bing
 
-#### Google DeepMind
+#### Evernote
 
-[Google DeepMind][DEEPMIND]
+[Evernote][EVERNOTE] is a tool used by millions for organization and
+quick note taking. It satisfies needs of many people. I have never
+gotten along with it personally.
+
+Judging by a conversation I recently had, the reason for this may have
+been my need to use the web version of the app, since I am on Linux
+all the time. The web version is not as fully functional as the
+desktop and iOS/Android versions.
+
+I believe this may require me to spend some time using it more
+extensively to properly evaluate it.
+
+#### [Google DeepMind][DEEPMIND]
+
+The amount of information available on DeepMind is limited right
+now. It seems to fit well with Google's idea of building the [computer
+from Star Trek][STARTREK]. This still lacks two components, though: Data input,
+and presentation.
 
 #### Google Knowledge Graph
 
@@ -209,6 +226,11 @@ though, it might be a suitable use in a company.
 #### Siri
 
 ### Document Repository Systems
+
+All of these look to be very useful tools for data entry and
+display. They include features that address many of the shortcomings
+of wikis and CMSes, but they are still not complete solutions to the
+main problem of partial (and incorrect/incomplete) data duplication.
 
 #### DocuShare by Xerox
 
@@ -230,7 +252,18 @@ have that is in major disagreement with itself?
 
 ### WinFS
 
-[WinFS][WINFS]
+[WinFS][WINFS] is an interesting idea from Microsoft. Instead of a
+file on disk just having very limited metadata (data creation
+date/time, file size, other data that is needed to track the file), it
+will have metadata fields that can even be custom defined, allowing a
+user to do searches on anything contained within their computer.
+
+This is an idea that comes very close to providing the front end
+components. Easy search, unlimited output formats, granular access
+controls, etc. It does not have an easy solution for the data
+duplication problems though. In fact, since it's part of the operating
+system, it still has the problem of allowing any number of different
+versions of the same data.
 
 ## The Solution?
 
@@ -260,7 +293,9 @@ the local network, or going out to the internet for updates, or both.
 [BUMP]: http://en.wikipedia.org/wiki/Bump_%28application%29
 [DEEPMIND]: http://deepmind.com/
 [DOCUSHARE]: http://docushare.xerox.com/
+[EVERNOTE]: http://www.evernote.com/
 [KNOWLEDGEGRAPH]: http://en.m.wikipedia.org/wiki/Knowledge_Graph
 [KNOWLEDGEVAULT]: http://en.m.wikipedia.org/wiki/Knowledge_Vault
 [SEARCHAPPLIANCE]: https://www.google.com/work/search/products/gsa.html
+[STARTREK]: http://www.slate.com/articles/technology/technology/2013/04/google_has_a_single_towering_obsession_it_wants_to_build_the_star_trek_computer.html
 [WINFS]: http://en.wikipedia.org/wiki/WinFS

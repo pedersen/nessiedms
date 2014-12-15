@@ -1,4 +1,6 @@
 *.pyc
-nessiewiki.egg-info/*
-data/*
 .coverage
+data/*
+nessiewiki/nessiewiki.egg-info/*
+nessiedms/nessiedms.egg-info/*
+venv/*
